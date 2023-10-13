@@ -6,9 +6,9 @@ pipeline{
 				checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'appBankcreds', url: 'https://github.com/Etech-Team-007/team7-multibuildjob.git']])
 			}
 		}
-		stage('Code Deploy To develop'){
+		stage('Code Deploy To feature'){
 			when {
-				branch 'develop'
+				branch 'feature'
 			}
 			parallel{
 				stage('1-Ida'){
@@ -25,7 +25,7 @@ pipeline{
         }
 		stage('Design'){
 			when {
-				branch 'main'
+				branch 'develop'
 			}
 			parallel{
 				stage('3-Terence'){
@@ -41,6 +41,9 @@ pipeline{
 			}
 		}
 		stage('Testing/Deployment'){
+			when{
+				branch 'main'
+			}
 			parallel{
 				stage('5-Therese'){
 					steps{
