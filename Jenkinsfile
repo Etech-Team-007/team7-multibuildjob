@@ -30,7 +30,7 @@ pipeline{
 			parallel{
 				stage('3-Terence'){
 					steps{
-						echo "Terence Fomenky"
+						echo "Terence-Fomenky"
 					}
 				}
 				stage('4-Desmond'){
